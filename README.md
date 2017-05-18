@@ -1,6 +1,6 @@
 # ms17-010-m4ss-sc4nn3r
 MS17-010 multithreading scanner written in python.  
-Inspired by [smb_ms17_010](https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/scanner/smb/smb_ms17_010.rb ) auxiliary module  
+Inspired by [smb_ms17_010](https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/scanner/smb/smb_ms17_010.rb ) metasploit-framework auxiliary module  
 <pre>
 
                   MS17-010-m4ss-sc4nn3r v1.0
