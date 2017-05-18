@@ -26,3 +26,10 @@ MS17-010 multithreading scanner written in python.
 ## Requirements:
 - Python 2.7
 - ipaddress module
+
+## Features:
+<pre>
+1) Multithreading
+2) Subnet scan
+3) CIDR newtrok scan
+</pre>
