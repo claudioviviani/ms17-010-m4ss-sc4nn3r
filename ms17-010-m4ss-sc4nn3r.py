@@ -1,9 +1,15 @@
-#!/usr/bin/python2
+#!/usr/bin/env python
+
+import sys
+# Python 2 Only
+if (sys.version_info > (3, 0)):
+    print('Python 3 detected')
+    print('Run this script with Python 2.x !')
+    sys.exit()
 
 import threading
 import re
 import ipaddress
-import sys
 import struct
 import time
 from socket import *
