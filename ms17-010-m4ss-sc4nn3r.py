@@ -178,6 +178,7 @@ def handle(data, iptarget):
         return struct.pack(">i", len(smbpipefid0))+smbpipefid0
 
 def conn(targets):
+    vuln = 0
     try:
         s = socket(AF_INET, SOCK_STREAM)
         s.settimeout(10)
@@ -197,6 +198,7 @@ def conn(targets):
                     ## 0x05 0x02 0x00 0xc0 = STATUS_INSUFF_SERVER_RESOURCES
                     if data[9:13] == "\x05\x02\x00\xc0":
                         print("[+] "+str(targets)+" is likely VULNERABLE to MS17-010  ("+nativeos+")")
+                        vuln = 1
 
                 s.send(handle(data, str(targets)))
 
@@ -208,7 +210,9 @@ def conn(targets):
         pass
         if SingleMultiScanCheck == 2:
             print("[+] Can't connecto to "+str(targets))
+            sys.exit(1)
 
+    return vuln
 
 if len(sys.argv)<=1:
     print(banner)
@@ -240,4 +244,5 @@ if SingleMultiScanCheck == 1:
 
     print("\n[+] "+str(totip)+" ip checked in %s seconds " % (time.time() - start_time))
 else:
-    conn(ip)
+    if conn(ip) == 0:
+        print("[+] "+str(ip)+" NOT vulnerable to MS17-010")
