@@ -143,7 +143,7 @@ def handle(data, iptarget):
     if data[8:10] == "\x75\x00":
 
         smbpipefid0 = "\xff\x53\x4d\x42"# Server Component: SMB
-        smbpipefid0 += "\x25" # SMB Command: Tree Connect AndX (0x75)
+        smbpipefid0 += "\x25" # 
         smbpipefid0 += "\x00" # Error Class: Success (0x00)
         smbpipefid0 += "\x00" # Reserved
         smbpipefid0 += "\x00\x00"# Error Code: No Error
