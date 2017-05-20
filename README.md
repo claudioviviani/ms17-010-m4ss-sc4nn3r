@@ -39,5 +39,5 @@ Inspired by [smb_ms17_010](https://github.com/rapid7/metasploit-framework/blob/m
 <pre>
 1) No python required
 2) No modules requred
-3) Tested on x84 and x64 Windows system
+3) Tested on x86 and x64 Windows system
 </pre>
