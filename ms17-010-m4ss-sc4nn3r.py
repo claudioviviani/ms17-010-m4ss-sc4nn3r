@@ -6,10 +6,16 @@ if (sys.version_info > (3, 0)):
     print('Python 3 detected')
     print('Run this script with Python 2.x !')
     sys.exit()
+import imp
+try:
+    imp.find_module('ipaddress')
+    import ipaddress
+except ImportError:
+    print("\n[+] ipaddress module required!")
+    sys.exit(1)
 
 import threading
 import re
-import ipaddress
 import struct
 import time
 from socket import *
@@ -143,11 +149,7 @@ def handle(data, iptarget):
     if data[8:10] == "\x75\x00":
 
         smbpipefid0 = "\xff\x53\x4d\x42"# Server Component: SMB
-<<<<<<< HEAD
         smbpipefid0 += "\x25" # SMB Command: Trans (0x25)
-=======
-        smbpipefid0 += "\x25" # 
->>>>>>> 68111d6a05845e7bcf0f0070f4fa53a71b1e2d6a
         smbpipefid0 += "\x00" # Error Class: Success (0x00)
         smbpipefid0 += "\x00" # Reserved
         smbpipefid0 += "\x00\x00"# Error Code: No Error
