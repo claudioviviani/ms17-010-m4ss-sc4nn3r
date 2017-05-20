@@ -40,10 +40,10 @@ banner = """
 
 """
 
-usage = "[+]Usage: "+sys.argv[0]+" ip or ip/CIDR or ip/subnet\n\n"
-usage += "   Example: "+sys.argv[0]+" 192.168.0.1\n"
-usage += "            "+sys.argv[0]+" 192.168.0.0/24\n"
-usage += "            "+sys.argv[0]+" 192.168.0.0/255.255.255.0\n"
+usage = "[+] Usage: "+sys.argv[0]+" ip or ip/CIDR or ip/subnet\n\n"
+usage += "    Example: "+sys.argv[0]+" 192.168.0.1\n"
+usage += "             "+sys.argv[0]+" 192.168.0.0/24\n"
+usage += "             "+sys.argv[0]+" 192.168.0.0/255.255.255.0\n"
 
 # Negotiate Protocol Request
 packetnego = "\x00\x00\x00\x54" # Session Message
@@ -143,7 +143,7 @@ def handle(data, iptarget):
     if data[8:10] == "\x75\x00":
 
         smbpipefid0 = "\xff\x53\x4d\x42"# Server Component: SMB
-        smbpipefid0 += "\x25" # SMB Command: Tree Connect AndX (0x75)
+        smbpipefid0 += "\x25" # SMB Command: Trans (0x25)
         smbpipefid0 += "\x00" # Error Class: Success (0x00)
         smbpipefid0 += "\x00" # Reserved
         smbpipefid0 += "\x00\x00"# Error Code: No Error
